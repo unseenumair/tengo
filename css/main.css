@@ -51,8 +51,9 @@ body::-webkit-scrollbar-thumb {
 
 #logo { 
   position: fixed;
-  top: 50%; left: 50%;
-  transform: translate(-50%, -50%) scale(2) rotate(360deg);
+  top: 0; left: 0;
+  /* top: 50%; left: 50%; */
+  /* transform: translate(-50%, -50%) scale(2) rotate(360deg); */
   z-index: var(--index2L);
   object-fit: cover;
 }
