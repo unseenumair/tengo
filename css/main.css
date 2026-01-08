@@ -1,0 +1,355 @@
+/* Reseting Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    scroll-behavior: smooth;
+}
+
+/* Styling Starts here */
+body {
+    overflow: hidden auto; 
+    background: var(--primaryCol);
+    color: var(--tertiaryCol);
+    user-select: none;
+    font-family: var(--textFamily);
+    font-weight: var(--mediumFont);
+    transition: all 0.5s ease 0.05s;
+    padding-top: 11vh;
+}
+
+/* Custom ScrollBar */
+body::-webkit-scrollbar { width: 10px; } 
+body::-webkit-scrollbar-track { 
+  background: var(--primaryCol); 
+  border-radius: 100vw; 
+  margin-block: .5em; 
+} 
+body::-webkit-scrollbar-thumb { 
+  background: var(--secondaryCol); 
+  border: 1px solid var(--primaryCol); 
+  border-radius: 100vw; 
+} 
+
+/* Header */
+
+#logoBg { 
+    position: fixed; 
+    z-index: var(--index2L); 
+    top: -15px; left: -25px; 
+    background: var(--secondaryCol); 
+    border-radius: 50%; 
+    width: 120px; 
+    height: 120px; 
+} 
+
+#logo { 
+  position: fixed;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%) scale(2) rotate(360deg);
+  z-index: var(--index2L);
+  object-fit: cover;
+}
+
+@keyframes showOff{ to { top: 0; left: 0; transform: translate(0) scale(1) rotate(0); } }
+
+nav {
+    background: var(--navBg);
+    backdrop-filter: blur(10px);
+    justify-content: flex-end !important;
+    width: 100%;
+    position: fixed;
+    z-index: var(--indexL);
+    top: 0; left: 0;
+    padding: var(--defaultPadding); 
+    height: 11vh; 
+    color: var(--secondaryCol);
+}
+
+ul { gap: 30px !important; list-style: none; }
+
+ul a { 
+    color: var(--secondaryCol);
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: var(--boldFont);
+}
+
+ul a iconify-icon { font-size: 1.5rem; }
+
+ul li:nth-child(3) a iconify-icon { color: var(--primaryCol); }
+
+#handleNav { position: relative; display: none; }
+
+/* Main */
+
+/* Hero Section */
+#heroSection {
+    height: 89vh; 
+    background: var(--secondaryCol);
+}
+
+#hero {
+    justify-content: space-evenly;
+    flex-direction: column;
+    height: 87%;
+    width: 90%;
+    border-radius: 30px;
+    background: url("../assets/heroBg.webp");
+    background-size: cover;
+    background-position: center;
+}
+
+h1 {
+    font-family: var(--mainFamily);
+    font-weight: var(--mediumFont);
+    font-size: 80px;
+    height: 5.5rem;
+    color: var(--primaryCol);
+}
+
+#tagline {
+    display: block;
+    width: 100%;
+    text-align: center;
+    color: var(--accentCol);
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+/* About Section */
+
+#about { 
+    padding: 50px 70px;
+    gap: 30px;
+}
+
+#about div { 
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+}
+
+#about h2 { font-size: 1.1rem; color: var(--secondaryCol); }
+#about h3 { 
+    font-size: 5rem; 
+    font-family: var(--mainFamily); 
+    font-weight: var(--mediumFont);
+    text-shadow: var(--textShadow);
+}
+
+#about p { 
+    font-size: 1.1rem;
+    color: var(--secondaryCol);
+    width: 80%;
+}
+
+#about button {
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+
+#about figure { position: relative; }
+
+#about figure span {
+    position: relative;
+    display: inline-block;
+    width: 350px;
+    height: 450px;
+    border-radius: 20px;
+    background-size: cover !important;
+    background-position: right !important;
+    transition: transform 1s ease;
+}
+
+#about figure.reveal span { transform: translateY(0) !important; }
+
+#about figure span:nth-child(1) { 
+    left: 30px; 
+    background: url("../assets/lazania-pizza.webp"); 
+}
+
+#about figure span:nth-child(2) { 
+    position: absolute; 
+    top: 15%; left: -125px; 
+    background: url("../assets/delivered-with-care.webp");
+}
+
+#about button a { color: var(--tertiaryCol); text-decoration: none; }
+
+/* Popular Foods */
+#popularFoods { margin-top: 70px; }
+
+#popularFoods h2 {
+    font-family: var(--mainFamily);
+    font-size: 2.5rem;
+    text-shadow: var(--textShadow);
+    margin-bottom: 40px;
+}
+
+#popularFoods figure {
+    padding: var(--defaultPadding);
+    background: var(--secondaryCol);
+    width: 80%;
+    margin: 0 auto;
+    border-radius: 30px;
+}
+
+#popularFoods img {
+    border-radius: 30px;
+    object-fit: cover;
+    transition: transform 1s ease;
+}
+
+#popularFoods figure.reveal img:nth-child(1) { transform: translateX(0px) rotate(-25deg) !important; }
+#popularFoods figure.reveal img:nth-child(2) { transform: translateX(-100px) rotate(20deg) !important; }
+
+#popularFoods button {
+    display: block;
+    width: fit-content;
+    margin: 30px auto;
+    filter: invert(1);
+}
+
+/* Aside */
+#scrollUp {
+  background: var(--secondaryCol);
+  color: var(--primaryCol);
+  box-shadow: 0 0 10px var(--primaryCol);
+  border-radius: 50%;
+  font-size: 2rem;
+  padding: 7px;
+  display: inline-flex;
+  position: fixed;
+  z-index: var(--indexL);
+  bottom: 4%; right: 3px;
+  opacity: 0;
+  animation: show 1s ease 2s forwards;
+}
+
+@keyframes show { to { opacity: 1; } }
+
+/* Footer */
+footer {
+    position: relative;
+    width: 100%; height: 90vh;
+    background: url("../assets/broast.webp"); 
+    background-size: cover; 
+    background-position: top center; 
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    padding-left: 20px;
+    gap: 7px;
+}
+
+footer::before {
+    content: "";
+    position: absolute;
+    z-index: var(--indexS);
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: var(--overlay);
+}
+
+footer::after {
+    content: '';
+    position: absolute;
+    bottom: 0; right: 3%;
+    width: 60px; height: 100%;
+    background: var(--overlay);
+}
+
+footer * { position: relative; z-index: var(--indexM); }
+
+footer h2 { 
+    color: var(--tertiaryCol);
+    font-size: 2.5rem;
+    font-family: var(--mainFamily);
+    font-weight: var(--mediumFont); 
+}
+
+footer span:nth-child(2) {
+    color: var(--primaryCol);
+    font-size: 1.5rem;
+    font-weight: var(--boldFont);
+}
+
+#socials { margin-top: 10px; }
+
+#socials a {
+    color: var(--tertiaryCol);
+    font-size: 2rem;
+}
+
+#copyRight {
+    position: absolute !important;
+    bottom: 3%;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background: var(--secondaryCol);
+    background: var(--overlay);
+}
+
+@media only screen and (orientation: landscape){ 
+    h1 { font-size: 7.5rem; height: 7.5rem; }
+    nav ul { transform: translateX(0) !important; }
+}
+
+@media only screen and (orientation: portrait){
+    #handleNav { display: block; z-index: var(--index2L); color: var(--secondaryCol); }
+    #openNav, #closeNav {
+        transition: font-size 0.35s ease;
+        font-size: 2rem;
+    }
+    #closeNav { font-size: 0; color: var(--primaryCol); }
+    nav ul { 
+        position: absolute;
+        top: 0; right: 0;
+        z-index: var(--indexL);
+        width: 100vw;
+        height: 100vh;
+        flex-direction: column; 
+        gap: 50px;
+        background: url("../assets/navBg.webp"), var(--secondaryCol);
+        background-size: cover;
+        background-position: center; 
+        transition: transform 0.5s ease 0.05s;
+     }
+     nav a { 
+        position: relative;
+        font-size: 1.7rem; 
+        font-weight: var(--thinFont) !important;
+        color: var(--tertiaryCol);
+        width: 180px;
+     }
+
+     nav li:nth-child(3) a { transform: translateX(10px); }
+     nav a iconify-icon { color: var(--primaryCol); font-size: 2.5rem; } 
+
+    #about { flex-direction: column; }
+    #about h3 { text-align: center; }
+    #about p { width: 90vw; text-align: center; }
+    
+    #about figure span:nth-child(1){ left: 7%; }
+    #about figure span:nth-child(2){ left: -5%; }
+
+    #popularFoods figure img:nth-child(1){ transform: rotate(-25deg) translate(120px, 60px) !important; }
+    #popularFoods figure img:nth-child(2){ transform: rotate(20deg) translateX(-110px) translateY(50px) !important; }
+
+    footer {
+        background-position: center;
+        height: clamp(250px, 70vmin, 400px);
+        justify-content: flex-start;
+        background-position: top;
+        padding-top: 20px;
+    }
+}
