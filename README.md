@@ -10,7 +10,7 @@ This project is a **demo case study**, focused on:
 - Simple, trust-building user experience
 - Local business–ready SEO structure
 
-🔗 [**Live Demo:**](https://unseenumair.github.io/tengo/)
+🔗 [**Live Demo**](https://unseenumair.github.io/tengo/)
 
 ---
 
