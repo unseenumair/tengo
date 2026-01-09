@@ -65,13 +65,13 @@
     }
   }
   </script>
-      <script type="text/javascript">
-      // Replace #home by / on opening site
-      if (location.href.endsWith("#home")) {
-        let index = location.href.indexOf("#home");
-        location.href = location.href.slice(0, index);
-      }
-    </script>
+      <script type="text/javascript"> 
+      // Replace #home by / on opening site 
+      if (location.href.endsWith("#home")) { 
+        let index = location.href.indexOf("#home"); 
+        location.href = location.href.slice(0, index); 
+      } 
+    </script> 
     <style>
     
     /* Variables */
@@ -188,7 +188,7 @@
       #loadingScreen h4 { --delayOut: 1.6s; animation: fade-out 0.5s ease var(--delayOut) forwards; }
     </style>
 </head>
-<body id="home" style="overflow: hidden;">
+<body style="overflow: hidden;">
     <header>
         <div id="logoBg" class="center"></div> 
         <img id="logo" src="assets/fav/favicon.svg" width="90"> 
@@ -204,7 +204,7 @@
             </ul>
         </nav>
     </header>
-    <main>
+    <main id="home">
         <section id="heroSection" class="center">
             <div id="hero" class="center">
                 <div>
