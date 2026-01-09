@@ -2,6 +2,7 @@
 const openNav = document.querySelector("#openNav");
 const closeNav = document.querySelector("#closeNav");
 const navUl = document.querySelector("nav").querySelector("ul");
+const loadAbles = document.querySelectorAll(".loadAble");
 
 // Open & Close NavBar
 openNav.addEventListener("click", ()=>{
@@ -30,6 +31,17 @@ const observer = new IntersectionObserver(entries=>{
     });
 
 document.querySelectorAll(".noReveal").forEach(element => { observer.observe(element) });
+
+// Disable Placeolder on Img Load
+loadAbles.forEach((loadAble)=>{
+  loadAble.querySelectorAll("img").forEach((img)=>
+    {
+      img.addEventListener("load", ()=>{
+        loadAble.classList.remove("placeholder");
+        img.style.opacity = "1";
+    });
+  });
+});
 
 // Some Functions
 function closeNavBar() {

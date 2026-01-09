@@ -105,20 +105,6 @@
     }
 
     /* Some Classes */
-    .makeBg {
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      z-index: var(--indexS);
-      object-fit: cover;
-      object-position: center;
-    }
-
-    .overToBg {
-      position: relative;
-      z-index: var(--indexM);
-    }
-    
     .center {
         display: flex;
         justify-content: center;
@@ -169,34 +155,6 @@
     
     .hover { cursor: pointer; transition: opacity 0.5s ease 0.05s; }
     .hover:hover { opacity: 0.7; }
-
-    .loadAble { transition: all 0.3s ease; }
-
-    /* Shimmer Placeholder */
-    .placeholder {
-      position: relative;
-      z-index: var(--indexM);
-      overflow: hidden;
-      background: rgba(0, 0, 0, 0.3);
-    }
-    
-    /* Shimmer effect */
-    .placeholder::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        110deg,
-        rgba(255, 255, 255, 0.08) 25%,
-        rgba(255, 255, 255, 0.1) 37%,
-        rgba(255, 255, 255, 0.08) 63%
-      );
-      transform: translateX(-100%);
-      animation: shimmer 2s ease-in-out infinite;
-    }
-    @keyframes shimmer { to { transform: translateX(100%); } }
-
-    img { opacity: 0; transition: opacity 1s ease; }
     
     /* Loading Screen */
       #loadingScreen {
@@ -238,8 +196,8 @@
     </div>
     <!-- Actual Content Starts -->
     <header>
-        <div id="logoBg"></div> 
-        <img id="logo" src="assets/fav/favicon.svg" width="90" height="90" loading="lazy">
+        <div id="logoBg" class="center"></div> 
+        <img id="logo" src="assets/fav/favicon.svg" width="90"> 
         <nav class="center">
             <div id="handleNav" class="hover">
                 <iconify-icon icon="hugeicons:menu-02" id="openNav" class="absoluteCenter"></iconify-icon>
@@ -254,13 +212,12 @@
     </header>
     <main id="home">
         <section id="heroSection" class="center">
-            <div id="hero" class="center loadAble placeholder">
-                <img src="assets/heroBg.webp" loading="lazy" alt="Delicious Food in Pakistan EllahAbad - TENGO" class="makeBg">
-                <div class="overToBg">
+            <div id="hero" class="center">
+                <div>
                 <h1>TENGO</h1>
                 <span id="tagline">PIZZA & BURGER</span>
                 </div>
-                <div class="center sideLines overToBg">Free Home Delievery</div>
+                <div class="center sideLines">Free Home Delievery</div>
             </div>
         </section>
         <section id="about" class="center">
@@ -273,22 +230,21 @@
             <button class="button hover"><a href="https://www.google.com/maps/place/TENGO+Fast+food+and+restaurant/data=!4m7!3m6!1s0x3918318b7072ac35:0x3efdf70671cdc75a!8m2!3d30.8776013!4d74.0586105!16s%2Fg%2F11ssk3tv33!19sChIJNaxycIsxGDkRWsfNcQb3_T4?authuser=0&hl=en&rclk=1" rel="noopener noreferrer" target="_blank">Visit Us</a></button>
             </div>
             <figure class="noReveal">
-            <span style="transform: translateY(-1700px);" class="placeholder loadAble"> <img src="assets/lazania-pizza.webp" alt="Lazania Pizza - TENGO" loading="lazy" class="makeBg"> </span>
-            <span style="transform: translateY(1000px);" class="placeholder loadAble"> <img src="assets/delivered-with-care.webp" loading="lazy" alt="Every Food Delievered with Care - TENGO" class="makeBg"> </span>
+            <span style="transform: translateY(-1700px);"></span>
+            <span style="transform: translateY(1000px);"></span>
             </figure>
         </section>
         <section id="popularFoods">
             <h2 class="center sideLines">Popular Foods</h2>
-            <figure class="center noReveal placeholder loadAble">
-                <img src="assets/lazania-pizza.webp" loading="lazy" alt="Lazania Pizza - Tango" width="350" height="350" style="transform: translateX(-1000px) rotate(-360deg);">
-                <img src="assets/behari-pizza.webp" loading="lazy" alt="Behari Pizza - Tango" width="300" height="300" style="transform: translateX(1000px) rotate(360deg);">
+            <figure class="center noReveal">
+                <img src="assets/lazania-pizza.webp" alt="Lazania Pizza - Tango" width="350" height="350" style="transform: translateX(-1000px) rotate(-360deg);">
+                <img src="assets/behari-pizza.webp" alt="Behari Pizza - Tango" width="300" height="300" style="transform: translateX(1000px) rotate(360deg);">
             </figure>
             <button class="button hover">Order Now</button>
         </section>
     </main>
-    <aside> <a id="scrollUp" href="#home" class="center hover"><iconify-icon icon="raphael:arrowup"></iconify-icon></a> </aside>
-    <footer class="placeholder loadAble">
-        <img src="assets/footerBg.webp" alt="Hot & Crispy Chicken Broast Event - TENGO" loading="lazy" class="makeBg">
+    <aside> <a id="scrollUp" href="#home" class="center hover animateAble"><iconify-icon icon="raphael:arrowup"></iconify-icon></a> </aside>
+    <footer>
         <h2>TENGO</h2>
         <span>RESTURANT</span>
         <span class="center" style="transform: translateX(-12px);"><iconify-icon icon="tdesign:location-filled" width="24" height="24" style="color: var(--accentCol);"></iconify-icon> Kasur Road, EllahAbad</span>
@@ -305,16 +261,16 @@
       let loaded = false; 
       window.addEventListener("load", () => { loaded=true; } ); 
       setTimeout(()=>{ 
-        if (loaded) hideLoading(); 
-        else { 
-          setTimeout(hideLoading, 300); 
-        } 
+        if (loaded) hideLoading();
+        else {
+          setTimeout(hideLoading, 300);
+        }
       }, 2200); 
-      function hideLoading() { 
-        document.querySelector("#loadingScreen").style.opacity = "0"; 
-        document.body.style.overflow = "hidden auto"; 
-        document.querySelector("#logo").style.animation = "showOff 1.5s ease 0.2s forwards"; 
-      } 
-    </script> 
+      function hideLoading() {
+        document.querySelector("#loadingScreen").style.opacity = "0";
+        document.body.style.overflow = "hidden auto";
+        document.querySelector("#logo").style.animation = "showOff 1.5s ease 0.2s forwards";
+      }
+    </script>
 </body>
 </html>
